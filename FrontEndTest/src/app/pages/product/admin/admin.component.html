@@ -1,0 +1,18 @@
+
+<app-card>
+  <app-data-table [data]="products" [config]="workListConfig" (edit)="onEdit($event)" (delete)="onDelete($event)" >
+    <app-button navigate="/product/operator" >Agregar</app-button>
+  </app-data-table>
+
+
+</app-card>
+
+<app-modal>
+  <app-card>
+    <h4>¿Seguro desea eliminar el producto {{selectedProduct?.id}}?</h4>
+    <div class="buttons">
+      <app-button type="secondary" (onClick)="cancel()">Cancelar</app-button>
+      <app-button (onClick)="confirmDelete()" >Aceptar</app-button>
+    </div>
+  </app-card>
+</app-modal>

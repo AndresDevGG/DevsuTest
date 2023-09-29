@@ -1,0 +1,11 @@
+<div class="pagination">
+  <a (click)="leftPage()">
+    <i class="ri-arrow-left-line"></i>
+  </a>
+  <ng-container *ngFor="let item of pagination">
+    <a [ngClass]="{'active': item === page}" class="active" (click)="setPage(item)">{{item}}</a>
+  </ng-container>
+  <a (click)="rightPage()">
+    <i class="ri-arrow-right-line"></i>
+  </a>
+</div>

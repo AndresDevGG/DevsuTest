@@ -1,0 +1,10 @@
+<h3>{{bindLabel && bindValue}}</h3>
+<select id="mi-select"  [(ngModel)]="value" (ngModelChange)="onChangeValue($event)">
+    <ng-container *ngIf="bindLabel !== ''">
+      <option *ngFor="let item of items" [value]="item[bindValue]">{{item[bindLabel]}}</option>
+    </ng-container>
+
+    <ng-container *ngIf="bindLabel === ''">
+      <option *ngFor="let item of items" [value]="item">{{item}}</option>
+    </ng-container>
+</select>

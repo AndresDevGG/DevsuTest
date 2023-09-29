@@ -1,0 +1,17 @@
+<div class="form-group">
+  <label>{{ label }} </label>
+  <input
+    class="input-style"
+    [(ngModel)]="value"
+    (ngModelChange)="onChangeValue()"
+    [ngClass]="{ invalid: errors && (touched || submit) }"
+    [type]="type"
+    [disabled]="disabled"
+  />
+  <div *ngIf="errors && (touched || submit)" class="invalid-text">
+    <span *ngIf="errors.required">Campo requerido</span>
+    <span *ngIf="errors.minlength">La longitud mínima debe ser de {{errors.minlength.requiredLength}} actual: {{errors.minlength.actualLength}}</span>
+    <span *ngIf="errors.maxlength">La longitud máxima permitida es de {{errors.maxlength.requiredLength}} actual: {{errors.maxlength.actualLength}}</span>
+    <span *ngIf="errors.notpreviousdate">La fecha no puede ser anterior al día actual</span>
+  </div>
+</div>

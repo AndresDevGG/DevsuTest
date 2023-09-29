@@ -1,0 +1,7 @@
+<ng-container *ngIf="display$ | async as display">
+  <section [class.open]="display === 'open'" (click)="close()">
+    <div (click)="$event.stopPropagation()">
+      <ng-content></ng-content>
+    </div>
+  </section>
+</ng-container>

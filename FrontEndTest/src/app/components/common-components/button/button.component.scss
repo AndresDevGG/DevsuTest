@@ -1,0 +1,24 @@
+@use './../../../../colors.scss';
+
+.btn {
+  padding: 0.8rem 1.2rem;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: colors.$accent-color;
+  color: colors.$primary-color;
+}
+
+.btn-secondary {
+  background-color: #e9ecf3;
+  color: colors.$primary-color;
+}
+
+.btn:hover {
+  cursor: pointer;
+  filter: brightness(95%);
+}
+

@@ -1,0 +1,54 @@
+<div class="tools">
+  <app-field-search [(ngModel)]="service.searchTerm"></app-field-search>
+  <ng-content #button></ng-content>
+</div>
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let item of config?.columns" [sortable]="item.field" (sort)="onSort($event)" role="button">
+          {{item.caption}} <i class="ri-information-line"></i>
+        </th>
+        <th *ngIf="config?.tools?.actions" >
+          Acciones <i class="ri-information-line"></i>
+        </th>
+      </tr>
+    </thead>
+    <ng-container *ngIf="(tables$ | async)?.length=== 0">
+      <tbody>
+        <tr>
+          <td [attr.colspan]="colspan" class="text-center">
+            No hay registros
+          </td>
+        </tr>
+      </tbody>
+    </ng-container>
+    <ng-container *ngIf="(tables$ | async)?.length > 0">
+      <tbody>
+        <tr *ngFor="let table of tables$ | async;let i=index">
+          <td *ngFor="let item of config.columns">
+
+            <img *ngIf="item?.type === 'image'" [src]="table[item.field]" alt="image" class="image-product">
+
+            <span *ngIf="item?.mask === 'date'">{{table[item.field] | date}}</span>
+            <span *ngIf="!item?.mask && item?.type !== 'image'">{{table[item.field]}}</span>
+
+          </td>
+          <td>
+            <app-dropdown (delete)="deleteData(table)" (edit)="editData(table)" ></app-dropdown>
+          </td>
+        </tr>
+      </tbody>
+    </ng-container>
+
+  </table>
+</div>
+<div class="tools">
+  <span class="f-w-6">{{service.startIndex}} a {{service.endIndex}} de {{service.totalRecords}}</span>
+
+  <app-paginator [collectionSize]="total$ | async" [(page)]="service.page" [pageSize]="service.pageSize"></app-paginator>
+
+  <app-select [items]="[5,10,20]" [(ngModel)]="service.pageSize" (ngModelChange)="changeSelect()" ></app-select>
+</div>
+
+

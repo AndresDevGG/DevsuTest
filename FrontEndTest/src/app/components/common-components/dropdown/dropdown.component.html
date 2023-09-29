@@ -1,0 +1,8 @@
+<div class="dropdown" (click)="toggle()" >
+  <!-- <button class="dropbtn">Seleccionar opción</button> -->
+  <i class="ri-more-2-line dropbtn"></i>
+  <div *ngIf="toogleDrop" class="dropdown-content">
+    <a (click)="onEdit()">Editar <i class="ri-pencil-line"></i></a>
+    <a (click)="onDelete()" class="text-danger">Eliminar <i class="ri-delete-bin-line"></i></a>
+  </div>
+</div>

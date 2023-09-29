@@ -1,0 +1,53 @@
+@use './../../../../colors.scss';
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 5px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid colors.$light-gray-color;
+}
+
+th {
+  padding: 4px;
+  background-color: colors.$light-gray-color;
+  color: #404040;
+  font-weight: 600;
+}
+
+th:hover {
+  cursor: pointer;
+}
+
+i {
+  font-weight: 100;
+}
+
+.tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image-product {
+  display: block;
+  width: 80px;
+  height: 40px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 600px) {
+
+  .table-container {
+    overflow-x: auto;
+  }
+
+  .table-container table {
+      width: 1000px;
+  }
+}

@@ -1,0 +1,36 @@
+.title {
+  text-align: center;
+  border-bottom: 2px solid;
+  padding-bottom: 2rem;
+}
+
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.buttons {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+app-button {
+  margin: 0 1rem;
+}
+
+@media screen and (max-width: 600px) {
+
+  .container {
+    display: block;
+  }
+}

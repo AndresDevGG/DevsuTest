@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@use 'colors';
+@import "remixicon/fonts/remixicon.css";
+// regular style toast
+@import 'ngx-toastr/toastr';
+
+body {
+  background-color: #f4f6f9;
+}
+// ====================
+// Región de clases genéricas
+// ====================
+.flex {
+  display: flex;
+}
+
+.toast-container {
+  font-family: sans-serif;
+}
+
+.just-center {
+  justify-content: center;
+}
+
+.f-w-6 {
+  font-weight: 600;
+}
+
+.text-danger {
+  color: #da0404;
+}

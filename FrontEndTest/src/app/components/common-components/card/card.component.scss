@@ -1,0 +1,38 @@
+@use './../../../../colors.scss';
+
+.card {
+  padding: 0.5rem;
+  height: auto;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.card-sm {
+  max-width: 800px;
+}
+
+.card-md {
+  max-width: 1000px;
+}
+
+.card-title {
+  margin-bottom: 0.1rem;
+}
+
+.card-desc {
+  margin-top: 0;
+  color: colors.$gray-color;
+}
+
+.card-content {
+  padding: 0.5rem;
+}
+
+@media screen and (max-width: 600px) {
+  .card-sm .card-md {
+      max-width: 100%;
+  }
+}

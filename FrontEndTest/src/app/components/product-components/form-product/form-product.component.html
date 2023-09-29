@@ -1,0 +1,15 @@
+<h1 class="title">Formulario de Registro</h1>
+  <form [formGroup]="productForm">
+    <div class="container">
+      <app-field formControlName="id" [submit]="isSubmit" [errors]="form['id'].errors" label="ID"></app-field>
+      <app-field formControlName="name" [submit]="isSubmit" [errors]="form['name'].errors" label="Nombre"></app-field>
+      <app-field formControlName="description" [submit]="isSubmit" [errors]="form['description'].errors" label="Descripción"></app-field>
+      <app-field formControlName="logo" [submit]="isSubmit" [errors]="form['logo'].errors" label="Logo"></app-field>
+      <app-field formControlName="date_release" [submit]="isSubmit" [errors]="form['date_release'].errors" label="Fecha Liberación" type="date" (ngModelChange)="calculateDateRevision()" ></app-field>
+      <app-field formControlName="date_revision" [submit]="isSubmit" [errors]="form['date_revision'].errors" label="Fecha Revision" type="date"></app-field>
+    </div>
+  </form>
+  <div class="buttons">
+    <app-button type="secondary" (onClick)="cancel()">{{ actionForm === 'create' ? 'Reiniciar' : 'Cancelar' }}</app-button>
+    <app-button (onClick)="submit()" >Enviar</app-button>
+  </div>
