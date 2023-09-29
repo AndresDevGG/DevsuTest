@@ -4,7 +4,6 @@ export class DateValidator {
 
   static NotPreviousDate(control: FormControl): ValidationErrors | null {
     let date = new Date(control.value);
-    date.setDate(date.getDate() + 1);
 
     let today: Date = new Date();
 

@@ -1,8 +1,8 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 
-import { ActivatedRoute, Router } from '@angular/router';
 import { AppState } from 'src/app/store/core/models/app-state.model';
 import { DateValidator } from 'src/app/common/Validators/date-validator';
 import { ProductDTO } from 'src/app/models/product/data';
@@ -53,8 +53,6 @@ export class FormProductComponent implements OnInit {
 
   public submit(): void {
     this.isSubmit = true;
-    console.log(this.productForm);
-    console.log('entró');
 
     if (this.productForm.invalid)
       return;
@@ -65,7 +63,6 @@ export class FormProductComponent implements OnInit {
       date_revision: formatDate(data.date_revision),
     };
 
-    console.log('entró');
     if (this.actionForm === 'create')
       this.store.dispatch(productRoot.VERIFICATION_PRODUCT_ID({ payload, redirect: true}))
     else
@@ -87,8 +84,8 @@ export class FormProductComponent implements OnInit {
       name: new FormControl(product?.name ?? "", [Validators.required, Validators.minLength(5), Validators.maxLength(100)]),
       description: new FormControl(product?.description ?? "", [Validators.required, Validators.minLength(10), Validators.maxLength(200)]),
       logo: new FormControl(product?.logo ?? "", [Validators.required]),
-      date_release: new FormControl(new Date(product?.date_release) ?? new Date, [Validators.required, DateValidator.NotPreviousDate]),
-      date_revision: new FormControl({ value: new Date(product?.date_revision) ?? null, disabled: true }, Validators.required)
+      date_release: new FormControl(product?.date_release ? new Date(product?.date_release) : new Date, [Validators.required, DateValidator.NotPreviousDate]),
+      date_revision: new FormControl({ value: product?.date_revision ? new Date(product?.date_revision) : null, disabled: true }, Validators.required)
     });
     this.calculateDateRevision();
   }
